@@ -1,0 +1,25 @@
+### Register
+
+POST http://localhost:3000/register HTTP/1.1
+content-type: application/json
+
+{
+    "username": "test",
+    "password": "123"
+}
+
+### Login
+
+POST http://localhost:3000/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "test",
+    "password": "123"
+}
+
+### Check auth
+
+POST http://localhost:3000/checkAuth HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjY2MDgyYmUwNzQzZDU4ZmJjMWMyZjBlNiIsImxvZ2dlZEF0IjoxNzExODExNTUzNzg2LCJpYXQiOjE3MTE4MTE1NTMsImV4cCI6MTcxMTgxODc1M30.4B6N5hNOIxmh-MRS8ucORDoDRuKsC_vpySdD6or5VBA

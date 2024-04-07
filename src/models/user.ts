@@ -32,6 +32,11 @@ const schema = new mongoose.Schema({
     required: true,
     default: () => false,
   },
+  completedSetup: {
+    type: Boolean,
+    required: true,
+    default: () => false,
+  },
 });
 
 export default mongoose.model("user", schema);

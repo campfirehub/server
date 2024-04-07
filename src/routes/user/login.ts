@@ -39,7 +39,10 @@ router.post("/login", async (req: express.Request, res: express.Response) => {
       );
       res.status(200).json({
         success: true,
-        token: token,
+        data: {
+          token: token,
+          completedSetup: userData.completedSetup,
+        },
       });
     } else {
       res.status(401).json({

@@ -7,5 +7,7 @@ async function importRoute(path: string) {
 
 importRoute("./user/login.js");
 importRoute("./user/register.js");
+importRoute("./user/checkAuth.js");
+importRoute("./projects/create.js");
 
 export default router;
