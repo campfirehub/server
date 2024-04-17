@@ -8,6 +8,9 @@ async function importRoute(path: string) {
 importRoute("./user/login.js");
 importRoute("./user/register.js");
 importRoute("./user/checkAuth.js");
+
 importRoute("./projects/create.js");
+importRoute("./projects/fetchMany.js");
+importRoute("./projects/fetch.js");
 
 export default router;

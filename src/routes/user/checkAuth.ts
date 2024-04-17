@@ -10,7 +10,6 @@ Body: {
     "password": "actual password"
 }
 */
-
 router.post(
   "/checkAuth",
   checkAuth,

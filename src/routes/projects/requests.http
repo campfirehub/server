@@ -9,3 +9,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc
   "type": "",
   "data": {}
 }
+
+### Get projects
+
+GET http://localhost:3000/projects HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjY2MTk5MjMxYmVmZWJlMjE0YWQzYzc4NSIsImxvZ2dlZEF0IjoxNzEzMzc5NDY1MzA5LCJpYXQiOjE3MTMzNzk0NjUsImV4cCI6MTcxMzM4NjY2NX0.R6u2ghwLr0PmvZdr98ecIXz_CCWZL-2AB10uvPipIa0
+
+### Get one project
+
+GET http://localhost:3000/project/66201b374eb83cae7b2ddebc HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjY2MTk5MjMxYmVmZWJlMjE0YWQzYzc4NSIsImxvZ2dlZEF0IjoxNzEzMzc5NDY1MzA5LCJpYXQiOjE3MTMzNzk0NjUsImV4cCI6MTcxMzM4NjY2NX0.R6u2ghwLr0PmvZdr98ecIXz_CCWZL-2AB10uvPipIa0

@@ -7,7 +7,7 @@ const schema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: true,
+    required: false,
   },
   type: {
     type: String,
@@ -34,6 +34,35 @@ const schema = new mongoose.Schema({
     type: Date,
     default: () => Date.now(),
     immutable: true,
+  },
+  lastUpdate: {
+    type: Date,
+    default: () => Date.now(),
+  },
+  owner: {
+    type: mongoose.Schema.ObjectId,
+    ref: "user",
+  },
+  forked: {
+    type: Boolean,
+    default: false,
+  },
+  forkedFrom: {
+    type: mongoose.Schema.ObjectId,
+    ref: "projects",
+  },
+  public: {
+    type: Boolean,
+    default: false,
+  },
+  publishedData: {
+    type: Object,
+    required: false,
+    default: {},
+  },
+  thumbnail: {
+    type: String,
+    default: "",
   },
 });
 

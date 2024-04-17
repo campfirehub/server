@@ -29,6 +29,16 @@ app.get("/", function (req, res) {
   res.send("Hello World");
 });
 
+async function fixBug() {
+  // For some reason there is a bug at startup and for every first request it returns 404
+  fetch(`http://localhost:${config.server.port}/checkAuth`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}
+
 async function connectToDb() {
   const connectionOptions = {
     dbName: `db`,
@@ -55,6 +65,7 @@ app.listen(config.server.port, async () => {
   console.log(
     `\n\n> Server running on port ${config.server.port} (http://localhost:${config.server.port})`
   );
+  fixBug();
   connectToDb();
 });
 
