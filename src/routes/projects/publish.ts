@@ -17,12 +17,12 @@ declare module "express-serve-static-core" {
       }
 */
 
-router.get(
-  "/project/:id",
+router.post(
+  "/publish/:id",
   checkAuth,
   async (req: express.Request, res: express.Response) => {
     try {
-      const projectData = await Project.findById(req.params.id).populate(
+      const projectData = (await Project.findById(req.params.id)).populated(
         "owner"
       );
       if (projectData.owner.id != req.user.id) {
@@ -32,10 +32,6 @@ router.get(
         });
         return;
       }
-      res.status(200).json({
-        success: true,
-        data: projectData,
-      });
     } catch (err) {
       res.status(404).json({
         success: false,

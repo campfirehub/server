@@ -12,5 +12,7 @@ importRoute("./user/checkAuth.js");
 importRoute("./projects/create.js");
 importRoute("./projects/fetchMany.js");
 importRoute("./projects/fetch.js");
+importRoute("./projects/save.js");
+importRoute("./projects/delete.js");
 
 export default router;

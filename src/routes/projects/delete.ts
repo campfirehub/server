@@ -17,7 +17,7 @@ declare module "express-serve-static-core" {
       }
 */
 
-router.get(
+router.delete(
   "/project/:id",
   checkAuth,
   async (req: express.Request, res: express.Response) => {
@@ -32,6 +32,7 @@ router.get(
         });
         return;
       }
+      await Project.deleteOne({ _id: req.params.id });
       res.status(200).json({
         success: true,
         data: projectData,

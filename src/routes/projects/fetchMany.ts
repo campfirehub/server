@@ -21,10 +21,11 @@ router.get(
   "/projects",
   checkAuth,
   async (req: express.Request, res: express.Response) => {
+    // TODO: Add pagination
     const projects = await Project.find(
       { owner: req.user.id },
-      "name createdAt lastUpdate forked public thumbnail description"
-    );
+      "name createdAt lastUpdate forked public thumbnail description type engine"
+    ).sort([["lastUpdate", -1]]);
     res.status(200).json({
       success: true,
       data: projects,
