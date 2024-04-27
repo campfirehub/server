@@ -41,6 +41,8 @@ router.post("/login", async (req: express.Request, res: express.Response) => {
         success: true,
         data: {
           token: token,
+          username: userData.username,
+          userId: userData._id,
           completedSetup: userData.completedSetup,
         },
       });
