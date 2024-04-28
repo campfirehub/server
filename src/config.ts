@@ -6,6 +6,7 @@ export default {
     cors: {
       origin: "*",
     },
+    host: "http://localhost:3000",
   },
   database: {
     connection_string: process.env.MONGO_CONNECTION_STR,

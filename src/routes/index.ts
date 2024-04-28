@@ -18,4 +18,7 @@ importRoute("./projects/getComments.js");
 importRoute("./projects/postComment.js");
 importRoute("./projects/fetchReplies.js");
 
+importRoute("./explore/viewproject.js");
+importRoute("./explore/embed.js");
+
 export default router;

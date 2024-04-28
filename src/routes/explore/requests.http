@@ -1,0 +1,4 @@
+### View project
+
+GET http://localhost:3000/view/662c086195ef65f3ebdeb7d9 HTTP/1.1
+content-type: application/json
