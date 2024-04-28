@@ -31,3 +31,24 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc
 {
   "code": "e"
 }
+
+### Fetch comments
+
+GET http://localhost:3000/comments/662c086195ef65f3ebdeb7d9 HTTP/1.1
+content-type: application/json
+
+### Post comment
+
+POST http://localhost:3000/comments/662c086195ef65f3ebdeb7d9 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjY2MTk5MjMxYmVmZWJlMjE0YWQzYzc4NSIsImxvZ2dlZEF0IjoxNzE0MzEyNjkwMTY0LCJpYXQiOjE3MTQzMTI2OTAsImV4cCI6MTcxNDMxOTg5MH0.KRPbrqjanBLyFc8lQ9JG3fkn5DThLnoerIgiuCLLWqY
+content-type: application/json
+
+{
+  "content": "Comment content",
+  "replyTo": ""
+}
+
+### Fetch replies
+
+GET http://localhost:3000/replies/662c086195ef65f3ebdeb7d9/662e5dd92b792c1a2d45fd2a/ HTTP/1.1
+content-type: application/json

@@ -14,4 +14,9 @@ export default {
     jwt_secret: process.env.JWT_SECRET,
     expiresIn: "2h",
   },
+  projects: {
+    comments: {
+      maxLength: 250,
+    },
+  },
 };

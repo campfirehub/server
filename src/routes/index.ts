@@ -14,5 +14,8 @@ importRoute("./projects/fetchMany.js");
 importRoute("./projects/fetch.js");
 importRoute("./projects/save.js");
 importRoute("./projects/delete.js");
+importRoute("./projects/getComments.js");
+importRoute("./projects/postComment.js");
+importRoute("./projects/fetchReplies.js");
 
 export default router;
