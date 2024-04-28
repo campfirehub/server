@@ -15,10 +15,11 @@ let options = {
   collation: {
     locale: "en",
   },
-  sort: [["createdAt", -1]],
+  sort: [["createdAt", 1]],
   populate: {
-    path: "author",
+    path: "author userReply",
     model: "user",
+    select: "username",
   },
 };
 

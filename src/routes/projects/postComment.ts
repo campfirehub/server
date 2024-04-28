@@ -64,12 +64,14 @@ router.post(
       }
     }
     try {
+      let userReply = req.body.userReply;
       await Comment.create({
         author: req.user.id,
         content: req.body.content,
         projectId: req.params.id,
         replyTo: req.body.replyTo,
         isReply: isReply,
+        userReply: userReply,
       });
       if (isReply) {
         replyComment.replies = replyComment.replies + 1;

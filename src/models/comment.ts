@@ -30,6 +30,10 @@ const schema = new mongoose.Schema({
     default: () => false,
   },
   replyTo: String,
+  userReply: {
+    type: mongoose.Schema.ObjectId,
+    ref: "user",
+  },
   replies: {
     type: Number,
     required: true,
