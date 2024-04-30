@@ -54,6 +54,7 @@ interface CommentInterface {
   replyTo: String;
   projectId: String;
   createdAt: Date;
+  replies: number;
 }
 
 schema.plugin(paginate);

@@ -1,5 +1,5 @@
 import express from "express";
-import checkAuth from "../../authChecker.js";
+import checkAuth from "../../helpers/authChecker.js";
 import Project from "../../models/project.js";
 const router = express.Router();
 

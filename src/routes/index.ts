@@ -14,9 +14,12 @@ importRoute("./projects/fetchMany.js");
 importRoute("./projects/fetch.js");
 importRoute("./projects/save.js");
 importRoute("./projects/delete.js");
-importRoute("./projects/getComments.js");
-importRoute("./projects/postComment.js");
-importRoute("./projects/fetchReplies.js");
+importRoute("./projects/publish.js");
+
+importRoute("./comments/getComments.js");
+importRoute("./comments/postComment.js");
+importRoute("./comments/deleteComment.js");
+importRoute("./comments/fetchReplies.js");
 
 importRoute("./explore/viewproject.js");
 importRoute("./explore/embed.js");

@@ -1,5 +1,5 @@
 import express from "express";
-import checkAuth from "../../authChecker.js";
+import checkAuth from "../../helpers/authChecker.js";
 import Project from "../../models/project.js";
 const router = express.Router();
 
@@ -32,6 +32,11 @@ router.post(
         });
         return;
       }
+      projectData.public = true;
+      await projectData.save();
+      res.status(200).json({
+        success: true,
+      });
     } catch (err) {
       res.status(404).json({
         success: false,

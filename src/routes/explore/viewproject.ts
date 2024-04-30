@@ -1,11 +1,19 @@
 import express from "express";
-import checkAuth from "../../authChecker.js";
+import checkAuth from "../../helpers/authChecker.js";
 import Project from "../../models/project.js";
 import mongoose from "mongoose";
 import config from "../../config.js";
+import jwt from "jsonwebtoken";
 const router = express.Router();
 
 router.get("/view/:id", async (req: express.Request, res: express.Response) => {
+  req.user = {};
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  jwt.verify(token, config.auth.jwt_secret, (err, user) => {
+    if (err) req.user = {};
+    req.user = user;
+  });
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     return res.status(404).json({
       success: false,
@@ -22,7 +30,9 @@ router.get("/view/:id", async (req: express.Request, res: express.Response) => {
       error: "Project not found",
     });
 
-  if (!projectData.public) {
+  if (!req.user) req.user = {};
+  if (!req.user.id) req.user.id = "";
+  if (!projectData.public && projectData.owner.id != req.user.id) {
     return res.status(404).json({
       success: false,
       error: "Project not found",
@@ -41,6 +51,7 @@ router.get("/view/:id", async (req: express.Request, res: express.Response) => {
       forked: projectData.forked,
       forkedFrom: projectData.forkedFrom,
       embedUrl: `${config.server.host}/embed/${projectData._id}`,
+      public: projectData.public,
     },
   });
 });
