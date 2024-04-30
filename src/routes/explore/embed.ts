@@ -41,7 +41,13 @@ router.get(
         error: "Project not found",
       });
     }
-    res.status(200).send(generateEmbed.genKaboomEmbed(projectData.data.code));
+    res
+      .status(200)
+      .send(
+        generateEmbed.genKaboomEmbed(
+          projectData.publishedData?.code || projectData.data.code
+        )
+      );
   }
 );
 

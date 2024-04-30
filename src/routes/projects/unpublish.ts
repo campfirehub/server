@@ -10,7 +10,7 @@ declare module "express-serve-static-core" {
 }
 
 router.post(
-  "/publish/:id",
+  "/unpublish/:id",
   checkAuth,
   async (req: express.Request, res: express.Response) => {
     try {
@@ -24,8 +24,8 @@ router.post(
         });
         return;
       }
-      projectData.public = true;
-      projectData.publishedData = projectData.data;
+      projectData.public = false;
+      projectData.publishedData = null;
       await projectData.save();
       res.status(200).json({
         success: true,

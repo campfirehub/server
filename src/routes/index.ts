@@ -15,6 +15,7 @@ importRoute("./projects/fetch.js");
 importRoute("./projects/save.js");
 importRoute("./projects/delete.js");
 importRoute("./projects/publish.js");
+importRoute("./projects/unpublish.js");
 
 importRoute("./comments/getComments.js");
 importRoute("./comments/postComment.js");
