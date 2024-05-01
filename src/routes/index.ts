@@ -14,6 +14,7 @@ importRoute("./projects/fetchMany.js");
 importRoute("./projects/fetch.js");
 importRoute("./projects/save.js");
 importRoute("./projects/delete.js");
+importRoute("./projects/updateInfo.js");
 importRoute("./projects/publish.js");
 importRoute("./projects/unpublish.js");
 
@@ -24,5 +25,7 @@ importRoute("./comments/fetchReplies.js");
 
 importRoute("./explore/viewproject.js");
 importRoute("./explore/embed.js");
+importRoute("./explore/like.js");
+importRoute("./explore/unlike.js");
 
 export default router;

@@ -52,3 +52,14 @@ content-type: application/json
 
 GET http://localhost:3000/replies/662c086195ef65f3ebdeb7d9/662e5dd92b792c1a2d45fd2a/ HTTP/1.1
 content-type: application/json
+
+### Update info
+
+POST http://localhost:3000/projectInfo/662c086195ef65f3ebdeb7d9 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjY2MTk5MjMxYmVmZWJlMjE0YWQzYzc4NSIsImxvZ2dlZEF0IjoxNzE0NTU0ODk4NzU2LCJpYXQiOjE3MTQ1NTQ4OTgsImV4cCI6MTcxNDU2MjA5OH0._VlqKQFaPSP2LQxGbnx-6C2czBBLwnD93haimiJ2-Jk
+content-type: application/json
+
+{
+  "name": "aaa",
+  "description": "aaa"
+}

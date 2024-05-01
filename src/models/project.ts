@@ -16,12 +16,13 @@ const schema = new mongoose.Schema({
       validator: (value) => {
         var ok = true;
         if (
-          value != "quiz" ||
-          value != "iframe" ||
-          value != "blocks" ||
+          value != "quiz" &&
+          value != "iframe" &&
+          value != "blocks" &&
           value != "code"
         )
           ok = false;
+        return ok;
       },
       message: (props) => "'" + props.value + "' is not a valid type",
     },
@@ -64,6 +65,10 @@ const schema = new mongoose.Schema({
   thumbnail: {
     type: String,
     default: "",
+  },
+  likes: {
+    type: Number,
+    default: 0,
   },
 });
 

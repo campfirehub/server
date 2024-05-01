@@ -4,6 +4,7 @@ import Project from "../../models/project.js";
 import mongoose from "mongoose";
 import config from "../../config.js";
 import jwt from "jsonwebtoken";
+import Interactions from "../../models/interactions.js";
 const router = express.Router();
 
 router.get("/view/:id", async (req: express.Request, res: express.Response) => {
@@ -30,6 +31,13 @@ router.get("/view/:id", async (req: express.Request, res: express.Response) => {
       error: "Project not found",
     });
 
+  let hasLiked = req.user
+    ? await Interactions.exists({
+        type: "like",
+        author: req.user.id,
+        project: projectData._id,
+      })
+    : false;
   if (!req.user) req.user = {};
   if (!req.user.id) req.user.id = "";
   if (!projectData.public && projectData.owner.id != req.user.id) {
@@ -52,6 +60,8 @@ router.get("/view/:id", async (req: express.Request, res: express.Response) => {
       forkedFrom: projectData.forkedFrom,
       embedUrl: `${config.server.host}/embed/${projectData._id}`,
       public: projectData.public,
+      likes: projectData.likes,
+      liked: hasLiked,
     },
   });
 });
