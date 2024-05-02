@@ -69,4 +69,8 @@ app.listen(config.server.port, async () => {
   connectToDb();
 });
 
+process.on("uncaughtException", function (err) {
+  console.error(err);
+});
+
 export default app;

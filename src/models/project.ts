@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import paginate from "mongoose-paginate-v2";
 
 const schema = new mongoose.Schema({
   name: {
@@ -72,4 +73,32 @@ const schema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model("projects", schema);
+interface ProjectInterface {
+  name: String;
+  description: String;
+  type: String;
+  data: { [key: string]: any };
+  engine: String;
+  createdAt: Date;
+  lastUpdate: Date;
+  owner: {
+    _id: String;
+    id: String;
+    username: String;
+  };
+  forked: Boolean;
+  forkedFrom: Object;
+  public: Boolean;
+  publishedData: { [key: string]: any };
+  thumbnail: String;
+  likes: number;
+}
+
+interface ProjectDocument extends mongoose.Document, ProjectInterface {}
+
+schema.plugin(paginate);
+
+export default mongoose.model<
+  ProjectDocument,
+  mongoose.PaginateModel<ProjectDocument>
+>("projects", schema);

@@ -27,5 +27,6 @@ importRoute("./explore/viewproject.js");
 importRoute("./explore/embed.js");
 importRoute("./explore/like.js");
 importRoute("./explore/unlike.js");
+importRoute("./explore/explore.js");
 
 export default router;

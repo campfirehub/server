@@ -25,10 +25,10 @@ let options = {
 };
 
 router.get(
-  "/comments/:id/:token?",
+  "/comments/:id",
   async (req: express.Request, res: express.Response) => {
     options.page = 1;
-    const token = req.params.token;
+    const token = req.headers.authorization?.split(" ")[1];
     jwt.verify(token, config.auth.jwt_secret, (err, user) => {
       if (err) req.user = {};
       req.user = user;
