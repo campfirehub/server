@@ -7,7 +7,7 @@ import mongoose from "mongoose";
 
 const app = express();
 
-app.use(express.json());
+app.use(express.json({ limit: "2.5mb" }));
 app.use(cors(config.server.cors));
 app.use(compression());
 app.use(morgan("combined"));

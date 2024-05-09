@@ -62,6 +62,7 @@ router.get("/view/:id", async (req: express.Request, res: express.Response) => {
       public: projectData.public,
       likes: projectData.likes,
       liked: hasLiked,
+      thumbnail: projectData.thumbnail,
     },
   });
 });
