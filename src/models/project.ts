@@ -17,7 +17,7 @@ const schema = new mongoose.Schema({
       validator: (value) => {
         var ok = true;
         if (
-          value != "quiz" &&
+          value != "slideshow" &&
           value != "iframe" &&
           value != "blocks" &&
           value != "code"
