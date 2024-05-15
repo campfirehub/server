@@ -5,6 +5,13 @@ const schema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
+    validate: {
+      validator: (value) => {
+        if (value.length > 24) return false;
+        return true;
+      },
+      message: (props) => "'" + props.value + "' is not a valid name",
+    },
   },
   description: {
     type: String,
