@@ -18,6 +18,7 @@ importRoute("./projects/updateInfo.js");
 importRoute("./projects/publish.js");
 importRoute("./projects/unpublish.js");
 importRoute("./projects/set_thumbnail.js");
+importRoute("./projects/uploadImage.js");
 
 importRoute("./comments/getComments.js");
 importRoute("./comments/postComment.js");
