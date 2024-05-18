@@ -31,4 +31,6 @@ importRoute("./explore/like.js");
 importRoute("./explore/unlike.js");
 importRoute("./explore/explore.js");
 
+importRoute("./notifications/get.js");
+
 export default router;

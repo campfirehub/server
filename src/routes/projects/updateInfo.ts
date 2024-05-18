@@ -30,11 +30,14 @@ router.post(
       });
       return;
     }
-    if (req.body.name.length > 24)
-      return res.status(400).json({
-        success: false,
-        error: "Project name is too long",
-      });
+    if (req.body.name) {
+      if (req.body.name.length > 24)
+        return res.status(400).json({
+          success: false,
+          error: "Project name is too long",
+        });
+    }
+
     if (req.body.name) projectData.name = req.body.name;
     if (req.body.description) projectData.description = req.body.description;
     await projectData.save();

@@ -2,6 +2,7 @@ import express from "express";
 import checkAuth from "../../helpers/authChecker.js";
 import Interactions from "../../models/interactions.js";
 import Project from "../../models/project.js";
+import Notification from "../../models/Notification.js";
 const router = express.Router();
 
 router.post(
@@ -38,6 +39,12 @@ router.post(
     res.status(200).json({
       success: true,
     });
+    Notification.deleteOne({
+      type: "like",
+      from: req.user.id,
+      to: projectData.owner,
+      data: { project: projectData.id },
+    }).catch((err) => {});
   }
 );
 

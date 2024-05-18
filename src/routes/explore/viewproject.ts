@@ -46,24 +46,31 @@ router.get("/view/:id", async (req: express.Request, res: express.Response) => {
       error: "Project not found",
     });
   }
+  let finalData = {
+    name: projectData.name,
+    description: projectData.description,
+    type: projectData.type,
+    engine: projectData.engine,
+    createdAt: projectData.createdAt,
+    lastUpdate: projectData.lastUpdate,
+    owner: projectData.owner,
+    forked: projectData.forked,
+    forkedFrom: projectData.forkedFrom,
+    embedUrl: `${config.server.host}/embed/${projectData._id}`,
+    public: projectData.public,
+    likes: projectData.likes,
+    liked: hasLiked,
+    thumbnail: projectData.thumbnail,
+  };
+  if (projectData.type == "slideshow") {
+    //@ts-ignore
+    finalData.slides = projectData.data.slides;
+    finalData.embedUrl = "";
+    delete finalData.embedUrl;
+  }
   res.status(200).json({
     success: true,
-    data: {
-      name: projectData.name,
-      description: projectData.description,
-      type: projectData.type,
-      engine: projectData.engine,
-      createdAt: projectData.createdAt,
-      lastUpdate: projectData.lastUpdate,
-      owner: projectData.owner,
-      forked: projectData.forked,
-      forkedFrom: projectData.forkedFrom,
-      embedUrl: `${config.server.host}/embed/${projectData._id}`,
-      public: projectData.public,
-      likes: projectData.likes,
-      liked: hasLiked,
-      thumbnail: projectData.thumbnail,
-    },
+    data: finalData,
   });
 });
 

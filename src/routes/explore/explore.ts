@@ -21,7 +21,10 @@ let options = {
 router.get("/explore", async (req: express.Request, res: express.Response) => {
   if (req.query.page && !isNaN(Number(req.query.page)))
     options.page = Number(req.query.page);
-  const projects = await Project.paginate({ public: true }, options);
+  let query = { public: true, name: new RegExp("", "i") };
+  //@ts-ignore
+  if (req.query.q) query.name = new RegExp(req.query.q, "i");
+  const projects = await Project.paginate(query, options);
   res.status(200).json({
     success: true,
     data: projects,
