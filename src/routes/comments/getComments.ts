@@ -20,7 +20,7 @@ let options = {
   sort: [["createdAt", -1]],
   populate: {
     path: "author",
-    select: "username",
+    select: "username avatarUrl",
   },
 };
 

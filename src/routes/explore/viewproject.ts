@@ -23,7 +23,7 @@ router.get("/view/:id", async (req: express.Request, res: express.Response) => {
   }
   const projectData = await Project.findById(req.params.id).populate(
     "owner",
-    "username"
+    "username avatarUrl"
   );
   if (projectData == null)
     return res.status(404).json({

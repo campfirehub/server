@@ -2,12 +2,19 @@ import express from "express";
 const router = express.Router();
 
 async function importRoute(path: string) {
-  router.use("/", (await import(path)).default);
+  try {
+    router.use("/", (await import(path)).default);
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 importRoute("./user/login.js");
 importRoute("./user/register.js");
 importRoute("./user/checkAuth.js");
+importRoute("./user/changePassword.js");
+importRoute("./user/updateData.js");
+importRoute("./user/getUserData.js");
 
 importRoute("./projects/create.js");
 importRoute("./projects/fetchMany.js");

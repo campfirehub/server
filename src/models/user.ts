@@ -37,6 +37,68 @@ const schema = new mongoose.Schema({
     required: true,
     default: () => false,
   },
+  avatar: {
+    skinColor: {
+      type: String,
+      default: "edb98a",
+    },
+    eyes: {
+      type: String,
+      default: "default",
+    },
+    eyebrows: {
+      type: String,
+      default: "default",
+    },
+    mouth: {
+      type: String,
+      default: "default",
+    },
+    hairstyles: {
+      type: String,
+      default: "longhair",
+    },
+    haircolor: {
+      type: String,
+      default: "",
+    },
+    facialhair: {
+      type: String,
+      default: "none",
+    },
+    clothes: {
+      type: String,
+      default: "vneck",
+    },
+    fabriccolor: {
+      type: String,
+      default: "545454",
+    },
+    glasses: {
+      type: String,
+      default: "none",
+    },
+    glassopacity: {
+      type: String,
+      default: 0.5,
+    },
+    accesories: {
+      type: String,
+      default: "none",
+    },
+    tattoos: {
+      type: String,
+      default: "non", // No, it's not a typo
+    },
+    backgroundcolor: {
+      type: String,
+      default: "ffffff",
+    },
+  },
+  avatarUrl: {
+    type: String,
+    default: "",
+  },
 });
 
 export default mongoose.model("user", schema);
