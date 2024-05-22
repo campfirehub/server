@@ -6,7 +6,10 @@ export default {
     cors: {
       origin: "*",
     },
-    host: "http://localhost:3000",
+    host:
+      process.env.DEV == "true"
+        ? "http://localhost:3000"
+        : "https://campfirehub-backend.vercel.app",
   },
   database: {
     connection_string: process.env.MONGO_CONNECTION_STR,

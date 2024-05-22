@@ -5,11 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "nodemon ./src/index.ts",
-    "dev": "nodemon ./src/index.ts",
+    "test": "DEV='true' nodemon ./src/index.ts",
+    "dev": "DEV='true' nodemon ./src/index.ts DEV=true",
     "build": "tsc",
-    "buildrun": "tsc && node dist/src/index.js",
-    "start": "node dist/src/index.js",
+    "buildrun": "DEV='false' tsc && node dist/src/index.js",
+    "start": "DEV='false' node dist/src/index.js",
     "vercel-build": "echo fish"
   },
   "keywords": [],

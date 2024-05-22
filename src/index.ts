@@ -62,6 +62,8 @@ async function connectToDb() {
 }
 
 app.listen(config.server.port, async () => {
+  console.log(process.env.DEV);
+
   console.log(
     `\n\n> Server running on port ${config.server.port} (http://localhost:${config.server.port})`
   );
