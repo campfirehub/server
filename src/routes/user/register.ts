@@ -31,6 +31,13 @@ router.post(
       });
       return;
     }
+    // if (req.body.age < 11) {
+    //   res.status(400).json({
+    //     success: false,
+    //     error: "Too young for this platform, pleace check our Terms Of Service",
+    //   });
+    //   return;
+    // }
     if (await User.exists({ username: req.body.username })) {
       res.status(409).json({
         success: false,

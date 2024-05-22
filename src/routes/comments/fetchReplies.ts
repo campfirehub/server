@@ -19,7 +19,7 @@ let options = {
   populate: {
     path: "author userReply",
     model: "user",
-    select: "username",
+    select: "username avatarUrl",
   },
 };
 

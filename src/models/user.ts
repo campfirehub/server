@@ -37,6 +37,10 @@ const schema = new mongoose.Schema({
     required: true,
     default: () => false,
   },
+  age: {
+    type: Number,
+    required: false,
+  },
   avatar: {
     skinColor: {
       type: String,
