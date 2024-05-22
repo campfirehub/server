@@ -9,7 +9,8 @@
     "dev": "nodemon ./src/index.ts",
     "build": "tsc",
     "buildrun": "tsc && node dist/src/index.js",
-    "start": "node dist/src/index.js"
+    "start": "node dist/src/index.js",
+    "vercel-build": "echo fish"
   },
   "keywords": [],
   "author": "",
