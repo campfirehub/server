@@ -1,43 +1,79 @@
 import express from "express";
 const router = express.Router();
 
-async function importRoute(path: string) {
-  try {
-    router.use("/", (await import(path)).default);
-  } catch (err) {
-    console.error(err);
-  }
-}
+// async function importRoute(path: string) {
+//   try {
+//     router.use("/", (await import(path)).default);
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
 
-importRoute("./user/login.js");
-importRoute("./user/register.js");
-importRoute("./user/checkAuth.js");
-importRoute("./user/changePassword.js");
-importRoute("./user/updateData.js");
-importRoute("./user/getUserData.js");
+// User
+import checkAuth from "./user/checkAuth.js";
+import login from "./user/login.js";
+import register from "./user/register.js";
+import changePassword from "./user/changePassword.js";
+import updateUserData from "./user/updateData.js";
+import getUserData from "./user/getUserData.js";
 
-importRoute("./projects/create.js");
-importRoute("./projects/fetchMany.js");
-importRoute("./projects/fetch.js");
-importRoute("./projects/save.js");
-importRoute("./projects/delete.js");
-importRoute("./projects/updateInfo.js");
-importRoute("./projects/publish.js");
-importRoute("./projects/unpublish.js");
-importRoute("./projects/set_thumbnail.js");
-importRoute("./projects/uploadImage.js");
+router.use("/", checkAuth);
+router.use("/", login);
+router.use("/", register);
+router.use("/", changePassword);
+router.use("/", updateUserData);
+router.use("/", getUserData);
 
-importRoute("./comments/getComments.js");
-importRoute("./comments/postComment.js");
-importRoute("./comments/deleteComment.js");
-importRoute("./comments/fetchReplies.js");
+// Projects
+import fetchMany from "./projects/fetchMany.js";
+import fetch from "./projects/fetch.js";
+import create from "./projects/create.js";
+import deleteProject from "./projects/delete.js";
+import save from "./projects/save.js";
+import updateInfo from "./projects/updateInfo.js";
+import publish from "./projects/publish.js";
+import unpublish from "./projects/unpublish.js";
+import setThumbnail from "./projects/set_thumbnail.js";
+import uploadImage from "./projects/uploadImage.js";
 
-importRoute("./explore/viewproject.js");
-importRoute("./explore/embed.js");
-importRoute("./explore/like.js");
-importRoute("./explore/unlike.js");
-importRoute("./explore/explore.js");
+router.use("/", fetchMany);
+router.use("/", fetch);
+router.use("/", create);
+router.use("/", deleteProject);
+router.use("/", save);
+router.use("/", updateInfo);
+router.use("/", publish);
+router.use("/", unpublish);
+router.use("/", setThumbnail);
+router.use("/", uploadImage);
 
-importRoute("./notifications/get.js");
+// Comments
+import getComments from "./comments/getComments.js";
+import postComment from "./comments/postComment.js";
+import deleteComment from "./comments/deleteComment.js";
+import fetchReplies from "./comments/fetchReplies.js";
+
+router.use("/", getComments);
+router.use("/", postComment);
+router.use("/", deleteComment);
+router.use("/", fetchReplies);
+
+// Explore
+import viewProject from "./explore/viewproject.js";
+import embed from "./explore/embed.js";
+import like from "./explore/like.js";
+import unlike from "./explore/unlike.js";
+import explore from "./explore/explore.js";
+
+router.use("/", viewProject);
+router.use("/", embed);
+router.use("/", like);
+router.use("/", unlike);
+router.use("/", explore);
+
+// Notifications
+import getNotifications from "./notifications/get.js";
+
+router.use("/", getNotifications);
 
 export default router;
