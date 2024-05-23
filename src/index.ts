@@ -11,7 +11,7 @@ app.use(express.json({ limit: "2.5mb" }));
 app.use(cors(config.server.cors));
 app.use(compression());
 app.use(morgan("combined"));
-let connected = false;
+let connected = "";
 
 interface RoutesModule {
   default: (
@@ -52,7 +52,7 @@ async function connectToDb() {
       connectionOptions
     );
     console.log("> Connected");
-    connected = true;
+    connected = config.database.connection_string;
   } catch (e) {
     console.log("> Error while connectiing to database");
     console.error(e);
