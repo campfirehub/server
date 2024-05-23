@@ -11,8 +11,6 @@ app.use(express.json({ limit: "2.5mb" }));
 app.use(cors(config.server.cors));
 app.use(compression());
 app.use(morgan("combined"));
-let connected = "";
-connected = config.database.connection_string;
 
 interface RoutesModule {
   default: (
@@ -28,7 +26,7 @@ app.use(async (req, res, next) => {
 });
 
 app.get("/", function (req, res) {
-  res.send(`Connected: ${connected}`);
+  res.send(`Hello world!`);
 });
 
 // async function fixBug() {
@@ -64,14 +62,13 @@ async function connectToDb() {
 }
 
 app.listen(config.server.port, async () => {
-  console.log(process.env.DEV);
-
   console.log(
     `\n\n> Server running on port ${config.server.port} (http://localhost:${config.server.port})`
   );
   //fixBug();
-  connectToDb();
 });
+
+connectToDb();
 
 process.on("uncaughtException", function (err) {
   console.error(err);
