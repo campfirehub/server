@@ -41,7 +41,7 @@ router.post("/login", async (req: express.Request, res: express.Response) => {
         success: true,
         data: {
           token: token,
-          username: userData.username,
+          username: userData.username.toLowerCase(),
           userId: userData._id,
           completedSetup: userData.completedSetup,
           avatarUrl: userData.avatarUrl,
