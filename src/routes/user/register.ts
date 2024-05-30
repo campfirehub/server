@@ -48,7 +48,7 @@ router.post(
     try {
       const hash = await argon2.hash(req.body.password);
       await User.create({
-        username: req.body.username,
+        username: req.body.username.toLowerCase(),
         password: hash,
       });
       res.status(201).json({
